@@ -20,6 +20,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.includes(:category, :user).find_by(id: params[:id])
     @comments = Comment.where(post_id: params[:id])
     @comment = Comment.new
   end

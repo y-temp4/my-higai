@@ -1,3 +1,15 @@
+<p class="pd-bottom10">カテゴリ: <%= @post.category.name %></p>
+
+
+<div class="panel panel-default" xmlns="http://www.w3.org/1999/html">
+  <div class="panel-heading">
+    <p>タイトル: <%= @post.title %></p>
+    <p><small>投稿者メール: <%= @post.user.email %></small></p>
+  </div>
+  <div class="panel-body post-min-height">
+    <%= @post.body %>
+  </div>
+</div>
 <div class="row">
   <div class="col-lg-offset-2 col-lg-8">
     <% @comments.each_with_index do |comment, index| %>
