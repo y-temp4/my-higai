@@ -17,3 +17,10 @@ Category.create(
 Category.create(
     name: 'きいて'
   )
+
+Post.create(
+    title: 'テスト投稿です',
+    body: 'もうこんな目にあうのはこりごりだ',
+    user_id: 1,
+    category_id: 1,
+  )

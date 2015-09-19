@@ -1,29 +1,57 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>MyHigai</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<header>
-  <nav>
-    <% if user_signed_in? %> 
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'プロフィール変更', edit_user_registration_path %> |
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "サインイン", new_user_registration_path %> |
-      <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
-  </nav>
-</header>
+<html lang="js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "my_higai" %></title>
+    <%= csrf_meta_tags %>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
 
-<%= yield %>
+    <%= stylesheet_link_tag "cerulean", :media => "all" %>
 
-</body>
+    <%= yield(:page_stylesheet) if content_for?(:page_stylesheet) %>
+
+  </head>
+  <body>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Bootstrap theme</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <% if user_signed_in? %>
+              <li><a href="#"><%= current_user.email %></a></li>
+              <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "サインイン", new_user_registration_path %></li>
+              <li><%= link_to "ログイン", new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <%= yield %>
+
+    <!-- Javascripts
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%= javascript_include_tag "cerulean" %>
+    <%= yield(:page_javascript) if content_for?(:page_javascript) %>
+  </body>
 </html>
