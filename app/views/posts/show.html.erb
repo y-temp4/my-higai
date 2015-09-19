@@ -15,7 +15,10 @@
     <% end %>
   </div>
 </div>
-<div class="row">
+
+
+
+<div class="row base">
   <div class="col-lg-9">
     <h2 class="page-header h3">コメント一覧</h2>
     <% @comments.each_with_index do |comment, index| %>
@@ -40,9 +43,9 @@
       </div>
     <% end %>
   </div>
-</div>
 
-<div class="row">
+
+
   <div class="col-lg-9">
     <%= form_for(@comment) do |f| %>
 
@@ -64,4 +67,20 @@
 
     <% end %>
   </div>
+
+
+  <div class="col-lg-3 move" style="padding-top:80px">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        他のカテゴリーの記事一覧
+      </div>
+      <div class="list-group">
+        <% @new_posts.each do |post| %>
+          <%= link_to post.title, post_path(post.id), class: 'list-group-item' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
 </div>
