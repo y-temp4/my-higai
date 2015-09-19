@@ -1,7 +1,6 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 .pd-bottom10 {
   padding-bottom: 10px;
 }
@@ -9,11 +8,31 @@
 .post-min-height {
   min-height: 200px;
 }
-
 .pd-radio {
   margin-left: -4px !important;
 }
 
 .radio-label {
   margin-right: 10px;
+}
+
+h4.comment_id {
+  float: left;
+}
+
+h5.user_id {
+  float: right;
+}
+
+div.comment-header {
+  overflow: hidden;
+}
+
+p {
+  &.h3 {
+   color: #555555;
+  }
+  &.time {
+    text-align: right;
+  }
 }

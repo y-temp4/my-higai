@@ -9,11 +9,11 @@
     <% @posts.each do |post| %>
       <div class="panel panel-default">
         <div class="panel-heading">
-          <%#= link_to post.title, post_path(post.id) %>
-          <%= post.title %>
+          <%= link_to post.title, post_path(post.id) %>
+          <%#= post.title %>
         </div>
         <div class="panel-body">
-          <%= post.body.truncate(10) %> <br>
+          <%= post.body.truncate(30) %> <br>
         </div>
       </div>
     <% end %>
@@ -26,7 +26,7 @@
       </div>
       <div class="list-group">
         <% @new_posts.each do |post| %>
-          <%= link_to post.title, '#', class: 'list-group-item' %>
+          <%= link_to post.title, post_path(post.id), class: 'list-group-item' %>
         <% end %>
       </div>
     </div>
