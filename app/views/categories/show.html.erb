@@ -1,0 +1,6 @@
+<% @posts.each do |post| %>
+  <%#= link_to post.title, post_path(post.id) %>
+  <%= post.title %> <br>
+  <%= post.body.truncate(10) %> <br>
+  <br>
+<% end %>
