@@ -1,27 +1,55 @@
-<%= form_for :post, url: posts_path do |f| %>
-    <% if user_signed_in? %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-    <% end %>
+<div class="form-horizontal" role="form">
+  <%= form_for :post, url: posts_path do |f| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        新規投稿
+      </div>
 
-    <% @categories.each do |cate| %>
-        <div class="field">
-          <%= f.radio_button :category_id, cate.id %>
-          <%= f.label :name, cate.id %>
-          <%= f.label :name, cate.name %>
-        </div>
-    <% end %>
+      <div class="panel-body">
+        <fieldset>
 
-    <div class="field">
-      <%= f.label :name, "タイトル" %>
-      <%= f.text_field :title %>
+          <% if user_signed_in? %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+          <% end %>
+
+          <div class="form-group">
+            <label class="col-sm-3 control-label">カテゴリ</label>
+            <div class="col-sm-7">
+              <div class="radio">
+                <% @categories.each do |cate| %>
+                  <label>
+                    <%= f.radio_button :category_id, cate.id %>
+                    <%= f.label :name, cate.name %>
+                  </label>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :タイトル, class: :"col-sm-3 control-label" %>
+            <div class="col-sm-7">
+              <%= f.text_field :title, class: :"form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :記事内容, class: :"col-sm-3 control-label" %>
+            <div class="col-sm-7">
+              <%= f.text_field :body, class: :"form-control" %>
+              <span class="help-block">被害情報を報告しよう</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-10">
+              <%= f.submit class: "btn btn-primary", value: "送信" %>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
     </div>
+  <% end %>
+</div>
 
-    <div class="field">
-      <%= f.label :body, "内容" %>
-      <%= f.text_field :body %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "登録する" %>
-    </div>
-<% end %>
