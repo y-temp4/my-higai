@@ -1,2 +1,16 @@
-<h1>Tops#index</h1>
-<p>Find me in app/views/tops/index.html.erb</p>
+<div class="jumbotron text-center">
+  <h1>なりすまし！！！</h1>
+  <p>マイナンバーによるなりすましにうんざりしているのでなんか気持ちがわるい。</p>
+</div>
+
+<div class="row">
+  <div class="col-lg-4 text-center">
+    <%= link_to @mouyamete.name, category_path(@mouyamete.id), class: 'btn btn-danger btn-lg' %>
+  </div>
+  <div class="col-lg-4 text-center">
+    <%= link_to @fusegu.name, category_path(@fusegu.id), class: 'btn btn-info btn-lg' %>
+  </div>
+  <div class="col-lg-4 text-center">
+    <%= link_to @kiite.name, category_path(@kiite.id), class: 'btn btn-success btn-lg' %>
+  </div>
+</div>
