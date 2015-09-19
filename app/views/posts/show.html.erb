@@ -1,0 +1,30 @@
+<% @comments.each_with_index do |comment, index| %>
+  <div>
+    <h3><%= index + 1 %>.</h3>
+    <h4>ユーザーID: 
+    <% if comment.user_id? %>
+    <%= comment.user_id %></h4>
+    <% else %>
+    なし</h4>
+    <% end %>
+    <h4>時間: <%= comment.created_at %></h4>
+    <h4>内容</h4>
+    <p><%= comment.body %></p>
+  </div>
+<% end %>
+
+<%= form_for(@comment) do |f| %>
+
+<legend>コメントの投稿</legend>
+
+<%= f.text_area :body %>
+
+<% if user_signed_in? %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+<% end %>
+
+<%= f.hidden_field :post_id, value: params[:id] %>
+
+<%= f.submit "登録" %>
+
+<% end %>
