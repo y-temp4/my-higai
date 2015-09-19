@@ -1,9 +1,13 @@
 <%= form_for :post, url: posts_path do |f| %>
+    
 
-    <div class="field">
-      <%#= f.label :category_id, "カテゴリー" %>
-      <%#= f.radio_button :category_id %>
-    </div>
+    <% @categories.each do |cate| %>
+        <div class="field">
+          <%= f.radio_button :category_id, cate.id %>
+          <%= f.label :name, cate.id %>
+          <%= f.label :name, cate.name %>
+        </div>
+    <% end %>
 
     <div class="field">
       <%= f.label :name, "タイトル" %>

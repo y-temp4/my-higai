@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
   def index
-    # @posts = Post.all.order("id desc")
+    @posts = Post.all.order("id desc")
   end
 
   def new
+    @categories = Category.all
   end
 
   def create
@@ -23,6 +24,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body, :category_id, :user_id)
     end
 end
