@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'tops#index'
 
+  root to: 'tops#index'
   get 'categories/index'
 
+  resources :categories#, only: [:create]
   resources :posts
 
   # The priority is based upon order of creation: first created -> highest priority.
