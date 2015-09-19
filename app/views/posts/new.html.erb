@@ -17,8 +17,8 @@
             <div class="col-sm-7">
               <div class="radio">
                 <% @categories.each do |cate| %>
-                  <label>
-                    <%= f.radio_button :category_id, cate.id %>
+                  <label class="radio-label">
+                    <%= f.radio_button :category_id, cate.id, class: "pd-radio"%>
                     <%= f.label :name, cate.name %>
                   </label>
                 <% end %>
