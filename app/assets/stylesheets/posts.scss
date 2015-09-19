@@ -36,3 +36,15 @@ p {
     text-align: right;
   }
 }
+
+@media (min-width: 1200px) {
+  .base {
+    position: relative;
+  }
+
+  .move {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
