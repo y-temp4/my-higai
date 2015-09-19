@@ -1,5 +1,7 @@
 <%= form_for :post, url: posts_path do |f| %>
-    
+    <% if user_signed_in? %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+    <% end %>
 
     <% @categories.each do |cate| %>
         <div class="field">
