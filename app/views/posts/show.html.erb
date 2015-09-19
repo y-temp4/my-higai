@@ -10,3 +10,50 @@
     <%= @post.body %>
   </div>
 </div>
+<div class="row">
+  <div class="col-lg-offset-2 col-lg-8">
+    <% @comments.each_with_index do |comment, index| %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="comment-header">
+          <h4 class="comment_id"><%= index + 1 %>.</h4>
+          <div class="help-block">
+            <h5 class="user_id">ユーザーID: 
+            <% if comment.user_id? %>
+            <%= comment.user_id %></h5>
+            <% else %>
+            なし</h5>
+            <% end %>
+          </div>
+        </div>
+        <p class="h3"><%= comment.body %></p>
+        <p class="time"><%= comment.created_at %></p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-offset-2 col-lg-8">
+    <%= form_for(@comment) do |f| %>
+
+    <legend>コメントの投稿</legend>
+
+    <div class="form-group">
+      <%= f.text_area :body, class: "form-control"  %>
+    </div>
+
+    <% if user_signed_in? %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+    <% end %>
+
+    <%= f.hidden_field :post_id, value: params[:id] %>
+
+    <div class="form-group">
+      <%= f.submit "登録", class: "btn btn-primary" %>
+    </div>
+
+    <% end %>
+  </div>
+</div>

@@ -21,10 +21,13 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.includes(:category, :user).find_by(id: params[:id])
+    @comments = Comment.where(post_id: params[:id])
+    @comment = Comment.new
   end
 
   private
-    def post_params
-      params.require(:post).permit(:title, :body, :category_id, :user_id)
-    end
+
+  def post_params
+    params.require(:post).permit(:title, :body, :category_id, :user_id)
+  end
 end
