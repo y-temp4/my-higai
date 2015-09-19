@@ -1,1 +1,27 @@
+<%= form_for :post, url: posts_path do |f| %>
+    <% if user_signed_in? %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+    <% end %>
 
+    <% @categories.each do |cate| %>
+        <div class="field">
+          <%= f.radio_button :category_id, cate.id %>
+          <%= f.label :name, cate.id %>
+          <%= f.label :name, cate.name %>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name, "タイトル" %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="field">
+      <%= f.label :body, "内容" %>
+      <%= f.text_field :body %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "登録する" %>
+    </div>
+<% end %>
