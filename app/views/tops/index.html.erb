@@ -1,16 +1,33 @@
-<div class="jumbotron text-center">
-  <h1>なりすまし！！！</h1>
-  <p>マイナンバーによるなりすましにうんざりしているのでなんか気持ちがわるい。</p>
+<div class="jumbotron text-center top_mobile_box">
+  <h1>なりすましされた!!!</h1>
+  <p>このサイトは、マイナンバー制度によってなりすましの被害にあったりした人が、
+          なりすましの対策をしたり、予防したりするものです。</p>
 </div>
 
-<div class="row">
-  <div class="col-lg-4 text-center">
-    <%= link_to @mouyamete.name, category_path(@mouyamete.id), class: 'btn btn-danger btn-lg' %>
+<div class="row" id="how-to-use">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        使い方
+      </div>
+      <div class="panel-body">
+        <ol>
+          <li>下の3つのカテゴリーから好きなものを選びましょう。</li>
+          <li>記事を読みましょう。</li>
+        </ol>
+      </div>
+    </div>
   </div>
-  <div class="col-lg-4 text-center">
-    <%= link_to @fusegu.name, category_path(@fusegu.id), class: 'btn btn-info btn-lg' %>
+</div>
+
+<div class="row" style="padding: 100px 0 200px">
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+    <%= link_to @mouyamete.name, category_path(@mouyamete.id), class: 'btn btn-danger btn-xl' %>
   </div>
-  <div class="col-lg-4 text-center">
-    <%= link_to @kiite.name, category_path(@kiite.id), class: 'btn btn-success btn-lg' %>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+    <%= link_to @fusegu.name, category_path(@fusegu.id), class: 'btn btn-info btn-xl' %>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+    <%= link_to @kiite.name, category_path(@kiite.id), class: 'btn btn-success btn-xl' %>
   </div>
 </div>

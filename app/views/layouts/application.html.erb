@@ -13,10 +13,62 @@
     <![endif]-->
 
     <%= stylesheet_link_tag "cerulean", :media => "all" %>
+    <%= stylesheet_link_tag controller.controller_name , media: "all", "data-turbolinks-track" => true %>
 
     <%= yield(:page_stylesheet) if content_for?(:page_stylesheet) %>
 
   </head>
+  <style>
+    .top_img_box {
+      width: 100%;
+      position: relative;
+    }
+
+    .top_title {
+      font-size: 5em;
+      font-family: meiryo;
+      font-weight: bold;
+      width: 100%;
+      position: absolute;
+      color: white;
+      text-align: center;
+      top: 100px;
+    }
+
+    .top_description {
+      font-size: 1.4em;
+      font-family: meiryo;
+      width: 100%;
+      position: absolute;
+      color: white;
+      text-align: center;
+      top: 250px;
+
+      text-shadow: gray 1px 1px 0px, black -1px 1px 0px,
+             black 1px -1px 0px, black -1px -1px 0px;
+    }
+
+    .top_btn_box {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      top: 400px;
+    }
+
+    .top_btn {
+    }
+
+    .top_img {
+      margin: -11px 0 70px;
+      -webkit-filter: blur(5px) sepia(0.2);
+    }
+
+    @media (max-width: 992px) {
+      .top_img_box {
+        display: none;
+      }
+    }
+  </style>
   <body>
     <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top">
@@ -45,6 +97,22 @@
     </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+    <% if controller.controller_name == 'tops' %>
+      <div class="top_img_box">
+        <%= image_tag("narisumashi.png", class: 'top_img', style: 'width: 100%; height: auto;') %>
+        <h1 class="top_title">
+          なりすましされた!!!
+        </h1>
+        <p class="top_description">
+          このサイトは、マイナンバー制度によってなりすましの被害にあったりした人が、<br>
+          なりすましの対策をしたり、予防したりするものです。
+        </p>
+        <div class="top_btn_box">
+          <%= link_to 'さっそく使ってみる', '#how-to-use', class: 'btn btn-warning btn-xl top_btn' %>
+        </div>
+      </div>
+    <% end %>
 
     <div class="container">
 
