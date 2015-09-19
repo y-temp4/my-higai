@@ -1,1 +1,5 @@
-
+<% @posts.each do |post| %>
+    <%= post.id %>
+    <%= post.title %>
+    <%= post.body %>
+<% end %>
