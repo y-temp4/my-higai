@@ -68,8 +68,35 @@
         display: none;
       }
     }
+
+
+    html, body {
+      height: 100%;
+    }
+
+    .wrap {
+      width: 100%;
+      position: relative;
+      min-height: 100%;
+      padding-bottom: 64px;
+    }
+
+    footer {
+      width: 100%;
+      height: 64px;
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+    }
+
+    .footer-body {
+      position: relative;
+      top: 20px;
+    }
+
   </style>
   <body>
+  <div class="wrap">
     <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -126,11 +153,16 @@
 
     </div>
 
+    <footer>
+      <p class="footer-body">©MY HIGAI</p>
+    </footer>
+
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "cerulean" %>
     <%= yield(:page_javascript) if content_for?(:page_javascript) %>
+  </div>
     <script>
       $(function(){
          $('a[href^=#]').click(function() {
