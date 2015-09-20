@@ -1,28 +1,13 @@
 
 <div class="breadcrumb-list"><%= breadcrumb %></div>
 
-<div class="row">
+<div class="row base">
   <div class="col-lg-9">
     <h1 class="page-header h2"><%= @post.title %></h1>
     <p><small>投稿者: <%= @post.user.username %></small></p>
     <p class="lead"><%= @post.body %></p>
     <p class="time"><%= @post.created_at.to_s(:default) %></p>
-  </div>
-  <div class="col-lg-3 text-center" style="padding-top:80px">
-    <% if @post.category_id == 1 %>
-      <%= image_tag("http://placehold.it/300x200/9a161a/fff") %>
-    <% elsif @post.category_id == 2 %>
-      <%= image_tag("http://placehold.it/300x200/022241/fff") %>
-    <% else %>
-      <%= image_tag("http://placehold.it/300x200/59822c/fff") %>
-    <% end %>
-  </div>
-</div>
 
-
-
-<div class="row base">
-  <div class="col-lg-9">
     <h2 class="page-header h3">コメント一覧</h2>
     <% @comments.each_with_index do |comment, index| %>
       <div class="panel panel-default">
@@ -45,11 +30,7 @@
         </div>
       </div>
     <% end %>
-  </div>
 
-
-
-  <div class="col-lg-9">
     <%= form_for(@comment) do |f| %>
 
     <legend>コメントの投稿</legend>
@@ -71,6 +52,16 @@
     <% end %>
   </div>
 
+
+  <div class="col-lg-3 text-center" style="padding-top:80px">
+    <% if @post.category_id == 1 %>
+      <%= image_tag("http://placehold.it/300x200/9a161a/fff") %>
+    <% elsif @post.category_id == 2 %>
+      <%= image_tag("http://placehold.it/300x200/022241/fff") %>
+    <% else %>
+      <%= image_tag("http://placehold.it/300x200/59822c/fff") %>
+    <% end %>
+  </div>
 
   <div class="col-lg-3 move" style="padding-top:80px">
     <div class="panel panel-primary">
