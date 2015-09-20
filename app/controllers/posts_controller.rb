@@ -21,6 +21,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.includes(:category, :user).find_by(id: params[:id])
+    @new_posts = Post.where.not(category_id: @post.category_id)
+                     .limit(5)
+                     .order("id DESC")
+
+    # @comments = Comment.includes(:users).where(post_id: params[:id])
+    # @comments = Comment.preload(:user).where(post_id: params[:id])
     @comments = Comment.where(post_id: params[:id])
     @comment = Comment.new
   end
