@@ -131,5 +131,17 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "cerulean" %>
     <%= yield(:page_javascript) if content_for?(:page_javascript) %>
+    <script>
+      $(function(){
+         $('a[href^=#]').click(function() {
+            var speed = 400;
+            var href= $(this).attr("href");
+            var target = $(href == "#" || href == "" ? 'html' : href);
+            var position = target.offset().top;
+            $('body,html').animate({scrollTop:position}, speed, 'swing');
+            return false;
+         });
+      });
+    </script>
   </body>
 </html>
