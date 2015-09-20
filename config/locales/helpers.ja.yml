@@ -5,5 +5,6 @@ ja:
         username: ユーザー名
         email: メールアドレス
         password: パスワード
+        current_password: 現在のパスワード
         password_confirmation: パスワード（確認用）
         remember_me: 次回からパスワード入力を省く
