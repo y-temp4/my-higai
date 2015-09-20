@@ -25,8 +25,6 @@ class PostsController < ApplicationController
                      .limit(5)
                      .order("id DESC")
 
-    # @comments = Comment.includes(:users).where(post_id: params[:id])
-    # @comments = Comment.preload(:user).where(post_id: params[:id])
     @comments = Comment.where(post_id: params[:id])
     @comment = Comment.new
   end

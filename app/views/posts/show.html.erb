@@ -31,11 +31,11 @@
             <h4 class="comment_id"><%= index + 1 %>.</h4>
             <div class="help-block">
               <h5 class="user_id">
-                ユーザーID:
+                ユーザーネーム:
                   <% if comment.user_id? %>
-                    <%= comment.user_id %>
+                    <%= comment.user.username %>
                   <% else %>
-                    なし
+                    名無しのKIT
                   <% end %>
               </h5>
             </div>
