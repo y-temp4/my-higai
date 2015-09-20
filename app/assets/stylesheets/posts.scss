@@ -29,7 +29,7 @@ div.comment-header {
 }
 
 p {
-  &.h3 {
+  &.h4 {
    color: #555555;
   }
   &.time {
@@ -37,7 +37,13 @@ p {
   }
 }
 
+.lead {
+  margin: 0 1.5em 1em;
+  letter-spacing: .03em;
+}
+
 @media (min-width: 1200px) {
+
   .base {
     position: relative;
   }

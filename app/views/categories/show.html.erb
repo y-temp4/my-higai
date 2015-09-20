@@ -10,7 +10,7 @@
       <% @posts.each do |post| %>
         <%= link_to post_path(post.id), class: "list-group-item main" do %>
           <h4 class="list-group-item-heading"><%= post.title %></h4>
-          <p class="list-group-item-text"><%= post.body.truncate(50) %> <br></p>
+          <p class="list-group-item-text"><%= post.body.truncate(48) %> <br></p>
         <% end %>
       <% end %>
     </div>
